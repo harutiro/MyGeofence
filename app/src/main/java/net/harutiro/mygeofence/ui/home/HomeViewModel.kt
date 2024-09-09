@@ -77,9 +77,6 @@ class HomeViewModel: ViewModel() {
     fun checkMonitorLocation(latlon1: LatLon, latlon2: LatLon , radius: Double): Boolean {
         val distance = distanceInMeters(latlon1.latitude, latlon1.longitude, latlon2.latitude, latlon2.longitude)
 
-        Log.d("checkMonitorLocation", "distance: $distance")
-        Log.d("checkMonitorLocation", "result: ${distance <= radius}")
-
         return distance <= radius
     }
 
