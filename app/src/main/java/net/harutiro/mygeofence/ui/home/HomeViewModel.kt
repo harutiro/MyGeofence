@@ -24,12 +24,12 @@ class HomeViewModel: ViewModel() {
 
     // 監視する中心位置
     var monitorLocation: LatLon = LatLon(
-        latitude = 35.1849266,
-        longitude = 137.1092261
+        latitude = 35.659800337727,
+        longitude = 139.70238937731
     )
     var monitorRadius: Double = 500.0 // 監視半径(メートル)
 
-    private var getRate: Long = 10000//取得頻度(ms)
+    private var getRate: Long = 5000//取得頻度(ms)
     private var minRate: Long = 5000//更新頻度(ms)
 
     private var fusedLocationClient: FusedLocationProviderClient? = null
@@ -76,6 +76,8 @@ class HomeViewModel: ViewModel() {
 
     fun checkMonitorLocation(latlon1: LatLon, latlon2: LatLon , radius: Double): Boolean {
         val distance = distanceInMeters(latlon1.latitude, latlon1.longitude, latlon2.latitude, latlon2.longitude)
+
+        Log.d("distance", distance.toString())
 
         return distance <= radius
     }
